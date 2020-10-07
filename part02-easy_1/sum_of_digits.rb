@@ -1,5 +1,4 @@
 =begin
-
 Sum of Digits
 
 Write a method that takes one argument, a positive integer, and returns the sum of its digits.
@@ -10,15 +9,6 @@ puts sum(23) == 5
 puts sum(496) == 19
 puts sum(123_456_789) == 45
 
-The tests above should print true.
-
-For a challenge, try writing this without any basic looping constructs (while, until, loop, and each).
-
-1. Understanding the Problem:
-
-- questions:
-  How do underscores effect the input? Can I use the input like normal integers then?
-
 - input: a positive integer
 - output: an integer
 
@@ -28,11 +18,7 @@ For a challenge, try writing this without any basic looping constructs (while, u
     - input may include underscores
     - underscores are just for readability, the integer is stored normally
 
-2. Examples / Test Cases: given in the problem statement
-
-3. Data Structure: number / string
-
-4. Algorithm:
+Algorithm:
 
 - define method "sum" that accepts "number" as the argument
 - convert number to string and then convert this string to an array of characters, 
@@ -41,21 +27,24 @@ For a challenge, try writing this without any basic looping constructs (while, u
   - pass sum method a block in which the each string digit is converted to integer before addition
 - return the sum
 
-5. Code:
-
 =end
 
-def sum(number)
-  str_digits = number.to_s.chars
-  str_digits.sum { |digit| digit.to_i }
+# def sum(number)
+#   str_digits = number.to_s.chars
+#   str_digits.sum { |digit| digit.to_i }
   
-  # another way
-  # str_digits.sum(&:to_i)
+#   # another way
+#   # str_digits.sum(&:to_i)
 
-  # another way
-  # str_digits.map(&:to_i).reduce(:+)
+#   # another way
+#   # str_digits.map(&:to_i).reduce(:+)
+# end
+
+def sum(number)
+  # number.digits.reduce(:+)
+  number.digits.sum
 end
 
-puts sum(23) == 5
-puts sum(496) == 19
-puts sum(123_456_789) == 45
+p sum(23) == 5
+p sum(496) == 19
+p sum(123_456_789) == 45

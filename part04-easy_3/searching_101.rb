@@ -1,5 +1,4 @@
 =begin
-
 Searching 101
 
 Write a program that solicits 6 numbers from the user, then prints a message that 
@@ -36,13 +35,6 @@ The number 17 appears in [25, 15, 20, 17, 23].
 18
 The number 18 does not appear in [25, 15, 20, 17, 23].
 
-1. Understanding the Problem:
-
-- questions: 
-  * Will the numbers be integers or floats?
-  * Are negative numbers or 0 allowed?
-  * Should I implement input validation logic?
-
 - input: 6 numbers
 - output: a string indicating whether the 6th number is among the first 5 or not
 
@@ -58,11 +50,7 @@ The number 18 does not appear in [25, 15, 20, 17, 23].
     - I will not implement input validation
     - I assume that inputs are only positive integers
 
-2. Examples / Test Cases: as given in the problem statement
-
-3. Data Structure: array
-
-4. Algortihm:
+- Algortihm:
 
 - initialize a variable "count" to 1
 - initialize array "numbers" to empty array
@@ -96,28 +84,29 @@ find_num_label method
 =end
 
 def find_num_label(num)
-  result = ''
-
-  result = case num
-           when 1 then '1st'
-           when 2 then '2nd'
-           when 3 then '3rd'
-           when 6 then 'last'
-           else num.to_s + 'th'
+  case num
+  when 1 then '1st'
+  when 2 then '2nd'
+  when 3 then '3rd'
+  when 6 then 'last'
+  else num.to_s + 'th'
   end
-
-  result  
 end
 
-count = 1
+# count = 1
 numbers = []
 
-loop do
-  puts "==> Enter the #{find_num_label(count)} number:"
-  input = gets.to_i
-  numbers.push(input)
-  break if count == 6
-  count += 1
+#loop do
+#  puts "==> Enter the #{find_num_label(count)} number:"
+#  input = gets.to_i
+#  numbers.push(input)
+#  break if count == 6
+#  count += 1
+#end
+
+(1..6).each do |n|
+  puts "==> Enter the #{find_num_label(n)} number:"
+  numbers << gets.to_i
 end
 
 num_to_check = numbers[-1]

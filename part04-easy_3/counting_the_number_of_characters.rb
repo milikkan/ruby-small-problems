@@ -1,9 +1,7 @@
 =begin
-
 Counting the Number of Characters
 
-Write a program that will ask a user for an input of a word or multiple words and 
-give back the number of characters. Spaces should not be counted as a character.
+Write a program that will ask a user for an input of a word or multiple words and give back the number of characters. Spaces should not be counted as a character.
 
 input:
 Please write word or multiple words: walk
@@ -17,12 +15,6 @@ Please write word or multiple words: walk, don't run
 output:
 There are 13 characters in "walk, don't run".
 
-1. Understanding the Problem:
-
-- questions:
-  - only spaces shouldn't be counted, right?
-  - What if user inputs nothing, should I validte against empty input?
-
 - input: a string
 - output: a string indicating number of characters in input excluding spaces
 
@@ -35,11 +27,7 @@ There are 13 characters in "walk, don't run".
   implicit:
     - perform input validation against empty input
 
-2. Examples / Test Cases: as given in the problem statement
-
-3. Data Structure: array
-
-4. Algorithm:
+- Algorithm:
 
 - create a variable named "input" and initialize it to empty string
 - create a loop that will break when the input size is greater than 0
@@ -56,8 +44,6 @@ There are 13 characters in "walk, don't run".
 - end loop
 - print result
 
-5. Code:
-
 =end
 
 input = ''
@@ -69,9 +55,16 @@ loop do
   puts "Invalid input..." 
 end
 
-count = 0
-input.chars.each do |ch|
-  count += 1 if ch != ' '
-end
+# 1
+# count = 0
+# input.chars.each do |ch|
+#   count += 1 if ch != ' '
+# end
+
+# 2
+# count = input.chars.count { |ch| ch != ' ' }
+
+# 3
+count = input.delete(' ').size
 
 puts "There are #{count} characters in \"#{input}\"."

@@ -10,10 +10,6 @@ puts digit_list(7) == [7]                     # => true
 puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
 puts digit_list(444) == [4, 4, 4]             # => true
 
-1. Understanding the Problem
-
-- questions: none
-
 - input: positive integer
 - output: an array of digits
 
@@ -21,11 +17,7 @@ puts digit_list(444) == [4, 4, 4]             # => true
   explicit:
     the returned array will consist of individual digits of the number
 
-2. Examples / Test Cases: given in the problem statement
-
-3. Data Structure: string
-
-4. Algorithm
+Algorithm
 
 - define a method "digit_list" that take an integer argument called "number"
 - convert number to string and assign it to "number_str"
@@ -35,19 +27,34 @@ puts digit_list(444) == [4, 4, 4]             # => true
     convert each item to integer (can use String#to_i)
 - return the result of map (can return implicitly)
 
-5. Code
-
 =end
 
-def digit_list(number)
-  # number_str = number.to_s
-  # digits_str = number_str.chars
-  # digits_str.map {|digit| digit.to_i }
+# first solution
+# def digit_list(number)
+#   # number_str = number.to_s
+#   # digits_str = number_str.chars
+#   # digits_str.map {|digit| digit.to_i }
 
-  number.to_s.chars.map { |digit| digit.to_i }
+#   number.to_s.chars.map { |digit| digit.to_i }
+# end
+
+# second solution
+# def digit_list(number)
+#   digits = []
+#   loop do 
+#     number, remainder = number.divmod(10)
+#     digits << remainder
+#     break if number.zero?
+#   end
+#   digits.reverse
+# end
+
+# third solution
+def digit_list(number)
+  number.to_s.chars.map(&:to_i)
 end
 
-puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
-puts digit_list(7) == [7]                     # => true
-puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
-puts digit_list(444) == [4, 4, 4]             # => true
+p digit_list(12345) == [1, 2, 3, 4, 5]
+p digit_list(7) == [7]
+p digit_list(375290) == [3, 7, 5, 2, 9, 0]
+p digit_list(444) == [4, 4, 4]

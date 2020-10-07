@@ -1,5 +1,4 @@
 =begin
-
 Multiplying Two Numbers
 
 Create a method that takes two arguments, multiplies them together, and returns the result.
@@ -8,11 +7,6 @@ Example:
 
 multiply(5, 3) == 15
 
-1. Understanding the Problem:
-
-- questions:
-  What is the input type? Integer or float or both?
-
 - input: 2 numbers
 - output: multiplaction of the inputs
 
@@ -20,16 +14,10 @@ multiply(5, 3) == 15
   explicit: take the numbers and return the result of their multiplacation
   implicit: assume inputs are integer
 
-2. Examples / Test Cases: as shown above
-
-3. Data Structure: number
-
-4. Algorithm:
+- Algorithm:
 
 - define a method "multiply" that take "num1" and "num2" as parameters
 - multiply the inputs and return
-
-5. Code:
 
 =end
 

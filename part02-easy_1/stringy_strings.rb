@@ -11,12 +11,6 @@ puts stringy(9) == '101010101'
 puts stringy(4) == '1010'
 puts stringy(7) == '1010101'
 
-The tests above should print true.
-
-1. Understanding the Problem
-
-- questions: none
-
 - input: a positive integer
 - output: a string
 
@@ -26,11 +20,7 @@ The tests above should print true.
     - The result will start with 1 and will continue alternating between 0 and 1
     - The length of the result will be equal to the input number
 
-2. Examples / Test Cases: given in the problem statement
-
-3. Data Structure: number / string
-
-4. Algorithm
+- Algorithm
 
   - define method "stringy" that takes "num" as parameter
   - define variable "count" and initialize it to 0
@@ -41,21 +31,19 @@ The tests above should print true.
     - increment "count" by 1
   - return result
 
-5. Code
-
 =end
 
-def stringy(num)
-  count = 0
-  result = ''
-  loop do
-    break if count == num
-    count.even? ? next_char = '1' : next_char = '0'
-    result << next_char
-    count += 1
-  end
-  result
-end
+# def stringy(num)
+#   count = 0
+#   result = ''
+#   loop do
+#     break if count == num
+#     count.even? ? next_char = '1' : next_char = '0'
+#     result << next_char
+#     count += 1
+#   end
+#   result
+# end
 
 # shorter version using Integer#times
 # def stringy(num)
@@ -67,7 +55,11 @@ end
 #   result
 # end
 
-puts stringy(6) == '101010'
-puts stringy(9) == '101010101'
-puts stringy(4) == '1010'
-puts stringy(7) == '1010101'
+def stringy(num)
+  (1..num).map { |idx| idx.odd? ? '1' : '0' }.join
+end
+
+p stringy(6) == '101010'
+p stringy(9) == '101010101'
+p stringy(4) == '1010'
+p stringy(7) == '1010101'

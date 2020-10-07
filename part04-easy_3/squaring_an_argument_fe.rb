@@ -13,8 +13,12 @@ end
 # doesn't work with negative integers
 def power_to_number(num, power)
   result = 1
-  if power > 0
-    power.times { result = multiply(result, num) }
-  end
+  power.times { result = multiply(result, num) }
   result
 end
+
+p power_to_number(2, 3) == 8
+p power_to_number(4, 3) == 64
+p power_to_number(-5, 4) == 625
+p power_to_number(4, 0) == 1
+p power_to_number(3, -2) == 1

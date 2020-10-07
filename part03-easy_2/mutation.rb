@@ -1,10 +1,10 @@
 # What will the following code print, and why? Don't run the code until you have tried to answer.
 
 array1 = %w(Moe Larry Curly Shemp Harpo Chico Groucho Zeppo)
-array2 = []
-array1.each { |value| array2 << value }
-array1.each { |value| value.upcase! if value.start_with?('C', 'S') }
-puts array2
+# array2 = []
+# array1.each { |value| array2 << value }
+# array1.each { |value| value.upcase! if value.start_with?('C', 'S') }
+# puts array2
 
 # prints
 
@@ -26,8 +26,9 @@ puts array2
 
 # to avoid this result, we need to put different (same value but different memory address) objects in array2.
 
-# array2 = []
-# array1.each { |value| array2.push(String.new(value)) }
-# array1.each { |value| value.upcase! if value.start_with?('C', 'S') }
-# p array1
-# p array2
+array2 = []
+#array1.each { |value| array2.push(String.new(value)) }
+array1.each { |value| array2 << value.dup }
+array1.each { |value| value.upcase! if value.start_with?('C', 'S') }
+p array1
+p array2

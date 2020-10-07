@@ -1,9 +1,7 @@
 =begin
-
 Sum or Product of Consecutive Integers
 
-Write a program that asks the user to enter an integer greater than 0, 
-then asks if the user wants to determine the sum or product of all numbers between 1 and the entered integer.
+Write a program that asks the user to enter an integer greater than 0,  then asks if the user wants to determine the sum or product of all numbers between 1 and the entered integer.
 
 Examples:
 
@@ -20,11 +18,6 @@ The sum of the integers between 1 and 5 is 15.
 p
 The product of the integers between 1 and 6 is 720.
 
-1. Understanding the Problem:
-
-- questions:
-  Should I validate input? (program needs a positive integer, than 's' or 'p')
-
 - input: a positive integer
 - output: sum or product (integer)
 - rules
@@ -38,12 +31,7 @@ The product of the integers between 1 and 6 is 720.
     - sum of integers: 1 + 2 + 3 + .... + n
     - product of integers: 1 * 2 * 3 * .....*n
 
-
-2. Examples / Test Cases: as given in problem sentence
-
-3. Data Structure: number
-
-4. Algorithm:
+- Algorithm:
 
 - prompt the user to enter an integer that is greater than 0 (use puts)
 - save input to "number" after converting it to integer
@@ -72,8 +60,6 @@ calculate_product method
   - multiply "i" by the "product"
 - return product
 
-5. Code:
-
 =end
 
 def compute_sum(num)
@@ -94,8 +80,17 @@ number = gets.to_i
 puts ">> Enter 's' to compute the sum, 'p' to compute the product."
 choice = gets.chomp
 
+# if choice == 's'
+#   puts "The sum of the integers between 1 and #{number} is #{compute_sum(number)}."
+# elsif choice == 'p'
+#   puts "The product of the integers between 1 and #{number} is #{compute_product(number)}."
+# end
+
+sum = (1..number).sum
+product = (1..number).inject(:*)
+
 if choice == 's'
-  puts "The sum of the integers between 1 and #{number} is #{compute_sum(number)}."
+  puts "The sum of the integers between 1 and #{number} is #{sum}."
 elsif choice == 'p'
-  puts "The product of the integers between 1 and #{number} is #{compute_product(number)}."
+  puts "The product of the integers between 1 and #{number} is #{product}."
 end
